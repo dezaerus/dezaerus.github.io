@@ -2,24 +2,47 @@ import {
   FaLinkedin,
   FaGithub,
   FaHtml5,
-  FaReacteurope,
+  FaReact,
   FaCss3Alt,
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import { SiGmail } from "react-icons/si";
-import { BiLogoTailwindCss } from "react-icons/bi";
+
+import {
+  SiFirebase,
+  SiGmail,
+  SiMysql,
+  SiExpress,
+  SiDjango,
+  SiFlask,
+} from "react-icons/si";
+import {
+  BiLogoTailwindCss,
+  BiLogoMongodb,
+  BiLogoPostgresql,
+  BiLogoPython,
+  BiLogoNodejs,
+} from "react-icons/bi";
 import { motion } from "framer-motion";
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.24,
+    },
+  },
+};
 
-
-
-
+const SkillVariant = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 function App() {
   return (
     <div className="app">
       <main className="flex flex-col mt-16 md:items-center mx-4">
         <motion.div
-          id="intro"
+          id="landing"
           className="flex flex-col gap-4"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -38,7 +61,7 @@ function App() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <img
-                src="https://avatars.githubusercontent.com/u/105989779?v=4"
+                src="/profilePicture.png"
                 alt=""
                 className="rounded-full w-28"
               />
@@ -221,44 +244,158 @@ function App() {
           </div>
         </motion.div>
 
-        <div id="Skills" className="flex flex-col mt-20 gap-16 md:w-[785px]">
-          <h1 className="text-3xl font-bold mt-20 ">
+        <motion.div
+          className="flex flex-col mt-20 gap-20 md:w-[785px]"
+          id="Skills"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <motion.div
+            variants={SkillVariant}
+            className="text-3xl font-bold mt-20"
+          >
             <p>Skills</p>
-          </h1>
+          </motion.div>
           <div className="flex flex-col gap-10 md:flex-row md:justify-between">
-            <h1 className="bg-rose-300 px-10 py-3 rounded-2xl text-rose-800 text-lg font-semibold h-[40px] w-[150px] flex justify-center items-center">
+            <motion.h1
+              variants={SkillVariant}
+              className="bg-blue-300 px-10 py-3 rounded-2xl text-blue-800 text-lg font-semibold h-[40px] w-[150px] flex justify-center items-center"
+            >
               FrondEnd
-            </h1>
+            </motion.h1>
             <div>
-              <ul className="flex gap-4">
-                <li className="flex flex-col items-center gap-2">
+              <motion.ul className="flex gap-4">
+                <motion.div
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
                   <FaHtml5 className="text-5xl text-orange-500" />{" "}
                   <span className="font-semibold">HTML</span>
-                </li>
-                <li className="flex flex-col items-center gap-2">
+                </motion.div>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
                   <FaCss3Alt className="text-5xl text-blue-500" />
                   <span className="font-semibold">CSS</span>
-                </li>
-                <li className="flex flex-col items-center gap-2">
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
                   <IoLogoJavascript className="text-5xl text-yellow-400" />
                   <span className="font-semibold">JavaScript</span>
-                </li>
-                <li className="flex flex-col items-center gap-2">
-                  <FaReacteurope className="text-5xl text-blue-600" />{" "}
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <FaReact className="text-5xl text-blue-400" />{" "}
                   <span className="font-semibold">React</span>
-                </li>
-
-                <li className="flex flex-col items-center gap-2">
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
                   <BiLogoTailwindCss className="text-5xl text-blue-500" />
                   <span className="font-semibold">Tailwind</span>
-                </li>
-              </ul>
+                </motion.li>
+              </motion.ul>
+            </div>
+          </div>{" "}
+          <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+            <motion.h1
+              variants={SkillVariant}
+              className="bg-green-300 px-10 py-3 rounded-2xl text-green-800 text-lg font-semibold h-[40px] w-[150px] flex justify-center items-center"
+            >
+              BackEnd
+            </motion.h1>
+            <div>
+              <motion.ul className="flex gap-4">
+                <motion.div
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <BiLogoNodejs className="text-5xl text-green-400" />{" "}
+                  <span className="font-semibold">Node.js</span>
+                </motion.div>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <SiExpress className="text-5xl text-gray-500" />
+                  <span className="font-semibold">Express.js</span>
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <BiLogoPython className="text-5xl text-gray-800" />
+                  <span className="font-semibold">Python</span>
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <SiDjango className="text-5xl text-green-700" />{" "}
+                  <span className="font-semibold">Django</span>
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <SiFlask className="text-5xl text-gray-800" />
+                  <span className="font-semibold">Flask</span>
+                </motion.li>
+              </motion.ul>
+            </div>
+          </div>{" "}
+          <div className="flex flex-col gap-10 md:flex-row md:justify-between">
+            <motion.h1
+              variants={SkillVariant}
+              className="bg-rose-300 px-10 py-3 rounded-2xl text-rose-800 text-lg font-semibold h-[40px] w-[150px] flex justify-center items-center"
+            >
+              Database
+            </motion.h1>
+            <div>
+              <motion.ul className="flex gap-4">
+                <motion.div
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <BiLogoMongodb className="text-5xl text-green-500" />{" "}
+                  <span className="font-semibold">MongoDB</span>
+                </motion.div>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <SiMysql className="text-5xl text-blue-500" />
+                  <span className="font-semibold">MySQL</span>
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <BiLogoPostgresql className="text-5xl text-blue-400" />
+                  <span className="font-semibold">PostgreSQL</span>
+                </motion.li>
+                <motion.li
+                  variants={SkillVariant}
+                  className="flex flex-col items-center gap-2"
+                >
+                  <SiFirebase className="text-5xl text-yellow-400" />{" "}
+                  <span className="font-semibold">Firebase</span>
+                </motion.li>
+              </motion.ul>
             </div>
           </div>
-        </div>
+        </motion.div>
       </main>
 
-      <footer className="bg-stone-200 py-5 mt-10 flex flex-col justify-center items-center md:flex-row md:gap-52">
+      <footer className="bg-stone-200 py-5 mt-32 flex flex-col justify-center items-center md:flex-row md:gap-52">
         <p className="text-gray-600 text-xl mt-3">© Abdirahman Osman 2023</p>
         <div className="flex ">
           <a href="https://www.linkedin.com/in/abiosman" className="m-2">
