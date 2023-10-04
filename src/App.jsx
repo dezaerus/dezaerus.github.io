@@ -6,17 +6,8 @@ import {
   FaCss3Alt,
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
-import {
-  SiGmail,
-  SiExpress,
-  SiDjango,
-  SiFlask,
-} from "react-icons/si";
-import {
-  BiLogoTailwindCss,
-  BiLogoPython,
-  BiLogoNodejs,
-} from "react-icons/bi";
+import { SiGmail, SiExpress, SiDjango, SiFlask } from "react-icons/si";
+import { BiLogoTailwindCss, BiLogoPython, BiLogoNodejs } from "react-icons/bi";
 import { motion } from "framer-motion";
 
 const container = {
@@ -174,7 +165,7 @@ function App() {
               <div className="flex justify-center gap-6">
                 <a href="">
                   <button className="bg-black  text-white text-md px-4 h-12 rounded-3xl  font-bold transition duration-200 hover:bg-gray-600">
-                    View website
+                    No demo
                   </button>
                 </a>
                 <a
@@ -257,7 +248,7 @@ function App() {
               <div className="flex justify-center gap-6">
                 <a href="">
                   <button className="bg-black  text-white text-md px-4 h-12 rounded-3xl  font-bold transition duration-200 hover:bg-gray-600">
-                    View website
+                    No demo
                   </button>
                 </a>
                 <a
